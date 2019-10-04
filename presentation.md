@@ -2,6 +2,8 @@
 
 ![No Call, No Show](img/no-call-600x330.jpg)
 
+### Contributors: Nick Gygongyosi, Jarid Siewierski, Fred Berendse
+
 ## Overview 
 A recent Kaggle competition asked participants to predict if interview candidates would show up for an interview scheduled by a recruiter. All of the interviews were scheduled in India between 2014 and 2016. The data are contained in a comma-separated file with 1234 rows of data and 27 columns. This case study will attempt to predict whether an interviewee will show using nonparametric supervised learning models.
 
