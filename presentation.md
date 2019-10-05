@@ -45,6 +45,8 @@ We calculated the distances between these locations by creating a distance matri
 
 ## Models and Results
 
+The data set contains 701 interviewees who showed and 532 interviewees who did not show - a fairly balanced dataset. Interviewees who showed were coded as 1 in the dataset.
+
 We attempted to predict whether an individual would show for an interview with a KNN model, a random forest model, and gradient boosted model.
 
 Each of these models utilized the following columns in the dataset as features:
@@ -65,6 +67,28 @@ Each of these models utilized the following columns in the dataset as features:
 
 In all of our models, we held out 25% of the rows for validating performance. 
 
+### Expected Attendance
+
+This dataset is unique in that it already contains predictions from recruitment staff. It would be interesting to see how our numerical models compare to those of humans who interviewed each person. The confusion matrix based on human predictions is as follows:
+
+
+| | Actual Show | Actual No Show |
+|--|------------|----------------|
+| **Predicted Show** | 591 | 291 |
+| **Predicted No Show** | 110 | 241 | 
+|||
+
+| | |
+|-|-|
+| **Accuracy** | 0.715 |
+| **Precision** | 0.670 |
+| **Recall** | 0.843 |
+| **Specificity** | 0.453 | 
+| **F1 score** | 0.747 |
+|||
+
+
+
 ### K-Nearest Neighbors 
 
 We utilized a K-Nearest Neighbors model with a hyperparameter of 8 nearest neighbors to give us a baseline for improvement. We attempted this model with all of the features and with only binary categorical data (i.e. "Yes/No", "Marital Status", "Gender") 
@@ -73,6 +97,7 @@ We utilized a K-Nearest Neighbors model with a hyperparameter of 8 nearest neigh
 |---------------|----------|
 | All features | 57% |
 | Binary only | 61% |
+|||
 
 ![KNN Cats Only](img/knn_cats_only.jpg)
 
@@ -94,6 +119,7 @@ The hyperparameters that resulted in the highest accuracy score are:
 | All features (no CV) | 69% |
 | Binary only (no CV) | 67% |
 | All features (CV) | 70% |
+|||
 
 Features selected without cross-validation:
 * start_perm
