@@ -116,3 +116,26 @@ df['weekdays'] = make_weekdays_column(df['date'])
 # df['d_loc2cur'] = get_distance(df['location'], df['cand_cur_loc']) ### all zeros!!
 df['d_loc2job'] = get_distance(df['location'], df['cand_job_loc'])
 df['d_loc2int'] = get_distance(df['location'], df['interview_loc'])
+
+# Get confusion matrix, acc, prec, recall from staff predictions
+tp = np.logical_and(df['obs_attend'] == 1, df['exp_attend'] == 1).sum()
+fp = np.logical_and(df['obs_attend'] == 0, df['exp_attend'] == 1).sum()
+tn = np.logical_and(df['obs_attend'] == 0, df['exp_attend'] == 0).sum()
+fn = np.logical_and(df['obs_attend'] == 1, df['exp_attend'] == 0).sum()
+
+conf_mtrx_staff = np.array([[tp,fp],[fn,tn]])
+print("Staff predictions")
+print("confusion matrix:")
+print(conf_mtrx_staff)
+print("Accuracy: {:.3f}".format((tp+fp)/(tp+fp+tn+fn)))
+prec = tp/(tp+fp)
+print("Precision: {:.3f}".format(prec))
+rec = tp/(tp+fn)
+print("Recall: {:.3f}".format(rec))
+print("Specificity: {:.3f}".format(tn/(fp+tn)))
+print("F1 Score: {:.3f}".format(2*prec*rec/(prec+rec)))
+
+### K-Nearest Neighbors model
+
+
+
