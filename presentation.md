@@ -1,6 +1,6 @@
 # The Interview No-Show Problem
 
-![No Call, No Show](img/no-call-600x330.jpg)
+![No Call, No Show](img/images.jpeg)
 
 ### Contributors: Nick Gygongyosi, Jarid Siewierski, Fred Berendse
 
